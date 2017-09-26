@@ -7,12 +7,13 @@ gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.0.0'
 
 gem 'turbolinks'
-gem 'jbuilder', '~> 2.0'
+gem 'jbuilder', '~> 2.7.0'
 
 gem 'execjs'
 gem 'therubyracer'
 
-gem 'bundler', '>= 1.8.4'
+gem 'bundler', '>= 1.15.4'
+
 # Use Semanti-UI for templating
 source 'https://rails-assets.org' do
   gem 'rails-assets-jquery'
@@ -30,11 +31,17 @@ gem 'configatron'
 gem 'nokogiri'
 gem 'premailer-rails'
 
-gem 'spring', group: :development
-gem 'quiet_assets', group: :development
-gem 'mailcatcher', group: :development
-gem 'pry', group: :development
-gem 'thin', group: :development
+group :development do
+  gem 'spring'
+  gem 'quiet_assets'
+  gem 'mailcatcher'
+  gem 'pry'
+  gem 'thin'
+end
+
+group :production do
+  gem 'unicorn'
+end
 
 gem 'sinatra', require: false
 gem 'slim'
