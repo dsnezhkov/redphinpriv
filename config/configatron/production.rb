@@ -29,12 +29,16 @@ configatron.campaigns.trcampaign do |trcampaign|
         Configatron::Delayed.new {
           "#{Rails.root}/app/assets/images/emails/#{trcampaign.name}/#{email.images.logo.first.name}" }
 
-
+    email.attachments.first.name = "report.pdf"
+    email.attachments.first.location =
+        Configatron::Delayed.new {
+          "#{Rails.public_path}/#{email.attachments.first.name}" }
+   
     # How this email message is delivered
     # From:
-    email.message.from = 'Some One <information@crainesbusiness.com>'
+    email.message.from = 'DOW Compliance Protector <compliance@oncyberprotect.com>'
     # Subject:
-    email.message.subject = 'Subject of Interest'
+    email.message.subject = 'Device out of Compliance'
     # Which email template we are using for this campaign, and where to find it
     email.message.template.path = ['phishemail',trcampaign.name].join('/')
     email.message.template.name = 'content'
@@ -44,7 +48,7 @@ configatron.campaigns.trcampaign do |trcampaign|
     # http://<addr>:<port>/<controller>/..id../<action>
     # Note: 'id' is the notification_tag which wil be filled in by the phishmailer
     # We do not manage SSL on the app server. This is done through nginx
-    email.links.hserver.addr = 'crainesbusiness.com'
+    email.links.hserver.addr = 'oncyberprotect.com'
     email.links.hserver.port  = '80'
     email.links.hserver.controller  = 'trnotifications'
     email.links.hserver.action  = 'show'
@@ -129,4 +133,4 @@ configatron.campaigns.trcampaign do |trcampaign|
 
 end
 # redirect for all campaigns for this customer
-configatron.web.rdr = 'http://example.com'
+configatron.web.rdr = 'http://dow.com'

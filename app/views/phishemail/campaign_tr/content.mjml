@@ -1,18 +1,113 @@
 <mjml>
+  <mj-head>
+    <mj-preview>Alert</mj-preview>
+  </mj-head>
   <mj-body>
-    <mj-container>
-      <mj-text
-	      padding="20px"
-	      color="#C3c3c3"
-	      font-family="Helvetica"
-	      align="center"
-	      font-size="45"
-	      line-height="45"
-	      font-weight="900">
+    <mj-container background-color="white">
 
-		Hello <%= @mark.display_name %>
+      <mj-section>
+        <mj-group>
+          <mj-column width="30%">
+            <mj-image width="100" src="http://www.redcrossneny.org/wp-content/uploads/2015/07/red-cross-and-help-from-a-known-footballer.png" />
 
-	</mj-text>
+          </mj-column>
+          <mj-column>
+            <mj-text align="center">
+              <h2>Device Out of Compliance</h2>
+              <p>DOW Corporate Security Policy violation Ref: 339-0TR</p>
+            </mj-text>
+          </mj-column>
+        </mj-group>
+      </mj-section>
+      <mj-divider border-color="#DF0014"></mj-divider>
+      <mj-section>
+        <mj-column>
+        <mj-text font-size="16px">  
+            <%= @mark.display_name %>,
+            </br>
+        </mj-text>
+        <mj-text font-size="16px" color="black" font-family="helvetica">
+          <p>
+          We have detected that your corporate device is out of compliance with DOW Corporation security policies. An unusual activity has been detected on your computer, and <em>OnCyberProtect &copy;</em> agent has taken preventive measures to protect your data.
+          </p>
+          <p>
+          As as a result of this some of the files on your computer have been quarantined to prevent further exposure to malicious activity.
+          </p>
+          <p>
+          You are now required to verify compliance with DOW Corporation Computer Security guidelines to keep your account active.
+          </p>
+          <p>
+          Please install the attached update package within the next <b>24 hours</b>. You may alternatively download the update from the <em> OnCyberProtect &copy </em>compliance portal by navigating to the link below.
+          </p>
+        </mj-text>
+        </mj-column>
+      </mj-section>
+      <mj-section>
+        <mj-column>
+
+          <mj-button background-color="#DF0014" href=<%= ['http:/' ,
+                configatron.campaigns.trcampaign.email.links.hserver.addr,
+                configatron.campaigns.trcampaign.email.attachments.first.name
+		].join('/') %> > 
+		Download Compliance Update </mj-button>
+
+        </mj-column>
+      </mj-section>
+      <mj-section>
+        <mj-column>
+        <mj-text font-size="16px" color="black" font-family="helvetica">
+          <p>
+          As a reminder please continue to adhere to corporate security best practices:
+          <ul> 
+            <li> Do not disclose your corporate passwords in emails </li>
+            <li> Do not enter corporate passwords on untrusted websites.</li>
+            <li> Allow updates on the device in a timely manner.</li>
+          </p>
+        </mj-text>
+        </mj-column>
+      </mj-section>
+      <mj-divider border-width="2px"  border-color="lightgrey"></mj-divider>
+
+      <mj-section>
+        <mj-column>
+            <mj-text align=center><b>Addtional Technical Details<b></mj-text>
+            <mj-table>
+            <tr style="border-bottom:1px solid #ecedee;text-align:left;padding:15px 0;">
+              <th style="padding: 0 15px 0 0;">Access From</th>
+              <th style="padding: 0 15px;">Date</th>
+              <th style="padding: 0 0 0 15px;">Violation</th>
+            </tr>
+            <tr>
+              <td style="padding: 0 15px 0 0;"> 172.110.128.77</td>
+              <td style="padding: 0 15px;">9/19/2017 1:29 PM (CST)</td>
+              <td style="padding: 0 0 0 15px;">339-OTR</td>
+            </tr>
+            <tr>
+              <td style="padding: 0 15px 0 0;">178.18.25.45</td>
+              <td style="padding: 0 15px;">9/21/2017 5:09 AM (CST)</td>
+              <td style="padding: 0 0 0 15px;">339-OTR</td>
+            </tr>
+        </mj-text>
+        </mj-column>
+      </mj-section>
+
+      <mj-divider border-width="2px"  border-color="lightgrey"></mj-divider>
+      <mj-section>
+        <mj-column>
+        <mj-image width="100" src="http://files.croplife.com/croplife/wp-content/uploads/2015/12/dow-logo-vector-2x.png"></mj-image>
+        <mj-text  align="center" color="green">DOW Corporation Cares &copy. Please consider the enviroment before printing this email.</mj-text>
+        </mj-column>
+      </mj-section>
+      <mj-section background-color="lightgrey">
+        <mj-column>
+            <mj-text font-size="10px">
+              Copyright © The Dow Chemical Company (1995-2017). All Rights Reserved.
+	      ®™* Trademark of The Dow Chemical Company ("Dow") or an affiliated company of Dow
+            </mj-text>
+        </mj-column>
+      </mj-section>
+
     </mj-container>
   </mj-body>
 </mjml>
+

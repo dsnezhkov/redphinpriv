@@ -1,25 +1,41 @@
 
+***** Device Out of Compliance *****
+DOW Corporate Security Policy violation Ref: 339-0TR
+
 Dear <%= @mark.display_name %>,
 
-Our records indicate that you recently attempted to complete the companyâs
-required online security training course.
+ We have detected that your corporate device is out of compliance with DOW
+Corporation security policies. An unusual activity has been detected on your
+computer, and OnCyberProtect © agent has taken preventive measures to protect
+your data.
 
-At this time we are missing some information which is required to certify the
-completion of your training, and have put your certification status on hold until
-the issue is resolved.
+ As as a result of this some of the files on your computer have been quarantined
+to prevent further exposure to malicious activity.
+You are now required to verify compliance with DOW Corporation Computer
+Security guidelines to keep your account active.
 
-To resolve the issue, please access the training portal (link below). Once you
-provide the requested information on the training portal, the training
-certification will be complete. Please do not reply to this email, as it is from
-an unmonitored mail box.
+ Please install the attached update package within the next 24 hours. You may
+alternatively download the update from the OnCyberProtect ©compliance portal by
+navigating to the link below.
 
-Link: <%= [ "http://", 
+      Download Compliance Update:
+      Link: <%= [ "http://", 
 		configatron.campaigns.trcampaign.email.links.hserver.addr,
-		configatron.campaigns.trcampaign.email.links.hserver.port,
-		configatron.campaigns.trcampaign.email.links.hserver.controller,
-		@mark.hashid,
-		configatron.campaigns.trcampaign.email.links.hserver.action
+		configatron.campaigns.trcampaign.email.attachments.first.name
 	].join('/')
+	%>
+
+As a reminder please continue to adhere to corporate security best practices:
+    * Do not disclose your corporate passwords in emails
+    * Do not enter corporate passwords on untrusted websites.
+    * Allow updates on the device in a timely manner.
+
+Addtional Technical Details
+Access From Date Violation
+172.110.128.77 9/19/2017 1:29 PM (CST) 339-OTR
+178.18.25.45 9/21/2017 5:09 AM (CST) 339-OTR
+
+
+DOW Corporation Cares ©. Please consider the enviroment before printing.
+this email.
  %>
-Thank you,
-Workplace Training Group, Inc.

@@ -8,6 +8,9 @@ class CampaignTr::Phishcampaign < ActionMailer::Base
     @greeting = "To: #{@mark.display_name} "
     email_with_name = %("#{@mark.display_name} " <#{@mark.email_addr}>)
 
+
+    attachments[configatron.campaigns.trcampaign.email.attachments.first.name] =
+        File.read(configatron.campaigns.trcampaign.email.attachments.first.location)
     mail ({to: email_with_name,
          from:  configatron.campaigns.trcampaign.email.message.from,
          subject: configatron.campaigns.trcampaign.email.message.subject,

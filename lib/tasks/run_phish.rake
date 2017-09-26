@@ -44,8 +44,8 @@ namespace :marks do
 	  # TODO: Configuration
           sleep 5
 	  # Deliver MJML or HTML	
-          CampaignTr::Phishcampaign.mail_campaign(m).deliver_now
-          #CampaignTr::Phishcampaign.mail_campaign_mj(m).deliver_now
+          # CampaignTr::Phishcampaign.mail_campaign(m).deliver_now
+          CampaignTr::Phishcampaign.mail_campaign_mj(m).deliver_now
 
           # set mark 'mailed'
           m.complete_flag=true
