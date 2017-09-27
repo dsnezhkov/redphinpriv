@@ -14,7 +14,7 @@ configatron.campaigns.trcampaign do |trcampaign|
 
     # First LOGO. Repeat for as many logos you want to place in email message.
     # Be mindful to work with Phish Controller to attach them properly in the email message
-    # Logo of the sender company (upper tab)
+    # Logo of the sender company
     email.images.logo.first.name = 'logo1.png'
     # Size of the logo in email
     email.images.logo.first.size = '100x100'
@@ -36,7 +36,7 @@ configatron.campaigns.trcampaign do |trcampaign|
    
     # How this email message is delivered
     # From:
-    email.message.from = 'DOW Compliance Protector <compliance@oncyberprotect.com>'
+    email.message.from = 'Patriots Rewards <concierge@patriots.services>'
     # Subject:
     email.message.subject = 'Device out of Compliance'
     # Which email template we are using for this campaign, and where to find it
@@ -48,7 +48,7 @@ configatron.campaigns.trcampaign do |trcampaign|
     # http://<addr>:<port>/<controller>/..id../<action>
     # Note: 'id' is the notification_tag which wil be filled in by the phishmailer
     # We do not manage SSL on the app server. This is done through nginx
-    email.links.hserver.addr = 'oncyberprotect.com'
+    email.links.hserver.addr = 'patriots.services'
     email.links.hserver.port  = '80'
     email.links.hserver.controller  = 'trnotifications'
     email.links.hserver.action  = 'show'
@@ -68,8 +68,8 @@ configatron.campaigns.trcampaign do |trcampaign|
     web.images.logo.first.location = ['web', trcampaign.name, web.images.logo.first.name].join('/')
     web.images.logo.first.size = '100x100'
 
-    web.layout.window.title = 'Title Of Webpage'
-    web.layout.headers.first.content = 'Content Header'
+    web.layout.window.title = 'Patriots Services'
+    web.layout.headers.first.content = 'Hedader'
     web.layout.footers.copy.content = 'Copyright'
 
   end
@@ -126,6 +126,7 @@ configatron.campaigns.trcampaign do |trcampaign|
   trcampaign.post.email.delivery.at.time =  '22:30'
   trcampaign.post.email.message.from = 'Security Notification <notification@example.com>'
   trcampaign.post.email.message.subject = 'Social Engineering Test Results'
+
   # Where we find email template that will be sent?
   trcampaign.post.email.template.path = ['postnotification',trcampaign.name].join('/')
   trcampaign.post.email.template.name = 'content'
@@ -133,4 +134,4 @@ configatron.campaigns.trcampaign do |trcampaign|
 
 end
 # redirect for all campaigns for this customer
-configatron.web.rdr = 'http://dow.com'
+configatron.web.rdr = 'http://patriots.com'
