@@ -1,0 +1,6 @@
+bin/
+.customlog.log
+log/
+db/*.sqlite3
+public/assets/
+
