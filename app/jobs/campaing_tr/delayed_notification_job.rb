@@ -1,5 +1,5 @@
 module CampaignTr
-  class DelayedNotificationJob < ActiveJob::Base
+  class DelayedNotificationJob < ApplicationJob
     queue_as :default
 
     def perform

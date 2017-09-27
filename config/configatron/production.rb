@@ -15,30 +15,25 @@ configatron.campaigns.trcampaign do |trcampaign|
     # First LOGO. Repeat for as many logos you want to place in email message.
     # Be mindful to work with Phish Controller to attach them properly in the email message
     # Logo of the sender company
-    email.images.logo.first.name = 'logo1.png'
+    email.images.logo.first.name = 'giftcard.jpg'
     # Size of the logo in email
-    email.images.logo.first.size = '100x100'
+    email.images.logo.first.size = '200x200'
     # logo file on disk
     email.images.logo.first.location =
         Configatron::Delayed.new {
           "#{Rails.root}/app/assets/images/emails/#{trcampaign.name}/#{email.images.logo.first.name}" }
 
-    email.images.logo.second.name = 'logo2.png'
-    email.images.logo.second.size = '50x50'
-    email.images.logo.second.location =
-        Configatron::Delayed.new {
-          "#{Rails.root}/app/assets/images/emails/#{trcampaign.name}/#{email.images.logo.first.name}" }
-
-    email.attachments.first.name = "report.pdf"
-    email.attachments.first.location =
-        Configatron::Delayed.new {
-          "#{Rails.public_path}/#{email.attachments.first.name}" }
+    ## Attachment example
+    #email.attachments.first.name = "report.pdf"
+    #email.attachments.first.location =
+    #    Configatron::Delayed.new {
+    #      "#{Rails.public_path}/#{email.attachments.first.name}" }
    
     # How this email message is delivered
     # From:
-    email.message.from = 'Patriots Rewards <concierge@patriots.services>'
+    email.message.from = 'DBI Patriots Rewards <concierge@patriots.services>'
     # Subject:
-    email.message.subject = 'Device out of Compliance'
+    email.message.subject = 'Patriots Super Bowl LI Raffle!!'
     # Which email template we are using for this campaign, and where to find it
     email.message.template.path = ['phishemail',trcampaign.name].join('/')
     email.message.template.name = 'content'
@@ -64,13 +59,13 @@ configatron.campaigns.trcampaign do |trcampaign|
 
     # How we find top-level phsihing company image(s). Same logic as 'email': name, location, size to
     # properly format the page. You may also work with semantic layout in the individual views
-    web.images.logo.first.name = 'logo1.png'
+    web.images.logo.first.name = 'patriots.jpg'
     web.images.logo.first.location = ['web', trcampaign.name, web.images.logo.first.name].join('/')
-    web.images.logo.first.size = '100x100'
+    web.images.logo.first.size = '200x100'
 
     web.layout.window.title = 'Patriots Services'
-    web.layout.headers.first.content = 'Hedader'
-    web.layout.footers.copy.content = 'Copyright'
+    web.layout.headers.first.content = 'Patriots Super Bowl LI Raffle'
+    web.layout.footers.copy.content = 'Patriots.Services'
 
   end
 

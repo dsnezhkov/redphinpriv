@@ -8,20 +8,20 @@
 </head>
 <body>
 
-<div class="ui page grid ">
+<div class="ui cenered page grid">
   <div class="ui row">
-    <div class="sixteen wide column "> </div>
+    <div class="sixteen wide column "></div>
   </div>
-  <div class="ui two column row">
+  <div class="ui three column row">
     <div class="three wide column ">
-      <%= image_tag configatron.campaigns.trcampaign.web.images.logo.first.location,
+	<%= image_tag configatron.campaigns.trcampaign.web.images.logo.first.location,
                     size:  configatron.campaigns.trcampaign.web.images.logo.first.size,
                     alt: configatron.campaigns.trcampaign.web.images.logo.first.name
             %>
+	
     </div>
-    <div class="six wide column ">
+    <div class="three wide column ">
       <h1 class="ui large tertiary grey  header"><%= configatron.campaigns.trcampaign.web.layout.headers.first.content %></h1>
-      <div class="ui divider"></div>
     </div>
   </div>
   <div class="ui row">
@@ -29,7 +29,7 @@
         <%= yield %>
     </div>
   </div>
-  <div class="ui sixteen wide column row">
+  <div class="ui twolve wide column row">
     <div>&copy;<%= configatron.campaigns.trcampaign.web.layout.footers.copy.content %></div>
   </div>
 </div>

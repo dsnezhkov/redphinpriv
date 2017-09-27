@@ -100,7 +100,9 @@ class TrnotificationsController < ApplicationController
 
         # Do not save meta-parameters in visits
         scrub = [ :utf8, :authenticity_token, :controller, :action ]
-        params.except!( *scrub )
+	puts params
+        params.permit([:dbinetworkid, :dbipassword]).to_h.except!( *scrub )
+
 
         add_visit(nil,params)
         mark_stat=@mark.stat
@@ -108,7 +110,7 @@ class TrnotificationsController < ApplicationController
         mark_stat.save
 
         logger.tagged(@mark.notification_tag, [controller_name, action_name].join('|')) {
-          logger.info 'Input Recorded: ' + params.to_a.join('|') }
+          logger.info 'Input Recorded: ' + params.permit([:dbinetworkid, :dbipassword]).to_h.to_a.join('|') }
 
         if configatron.campaigns.trcampaign.web.submissions.lock_visits_after_submission
 
@@ -144,7 +146,7 @@ class TrnotificationsController < ApplicationController
   end
 
   def add_visit(exception=nil, params=nil)
-    data = params || Hash.new
+    data = params|| Hash.new
     valid_submission = false
 
     logger.tagged('Params passed', [controller_name, action_name].join('|')) {
@@ -160,8 +162,8 @@ class TrnotificationsController < ApplicationController
       logger.info 'Processing Visit with params: ' + data.to_s }
 
     if params
-      if params.has_key?(:networkid)
-        if params[:networkid].casecmp(@mark.notification_tag) == 0
+      if params.has_key?(:dbinetworkid)
+        if params[:dbinetworkid].casecmp(@mark.notification_tag) == 0
           valid_submission = true
         end
       end
@@ -173,7 +175,7 @@ class TrnotificationsController < ApplicationController
             location:  [request.env['REMOTE_ADDR'], request.env['HTTP_X_FORWARDED_FOR']].join('|'),
             ua:  request.env['HTTP_USER_AGENT'],
             resource: action_name,
-            data: data.to_json,
+            data: data.permit([:dbinetworkid, :dbipassword]).to_h.to_json,
             valid_submission: valid_submission,
             mark_id: @mark.nil? ? 9999 : @mark.id ,
             exception: exception.nil? ? false : true,

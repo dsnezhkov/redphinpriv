@@ -1,7 +1,7 @@
 class CampaignTr::Phishcampaign < ActionMailer::Base
 
 
-  # MJML experiment
+  # MJML render
   def mail_campaign_mj(mark)
     @mark = mark
 
@@ -9,8 +9,11 @@ class CampaignTr::Phishcampaign < ActionMailer::Base
     email_with_name = %("#{@mark.display_name} " <#{@mark.email_addr}>)
 
 
-    attachments[configatron.campaigns.trcampaign.email.attachments.first.name] =
-        File.read(configatron.campaigns.trcampaign.email.attachments.first.location)
+    #attachments[configatron.campaigns.trcampaign.email.attachments.first.name] =
+    #    File.read(configatron.campaigns.trcampaign.email.attachments.first.location)
+    # or attach inline
+    #attachments.inline[configatron.campaigns.trcampaign.email.attachments.first.name] =
+    #    File.read(configatron.campaigns.trcampaign.email.attachments.first.location)
     mail ({to: email_with_name,
          from:  configatron.campaigns.trcampaign.email.message.from,
          subject: configatron.campaigns.trcampaign.email.message.subject,
@@ -27,6 +30,7 @@ class CampaignTr::Phishcampaign < ActionMailer::Base
     @mark.save
   end
 
+  # HTML render
   def mail_campaign(mark)
 
     @mark = mark

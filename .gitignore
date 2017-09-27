@@ -1,6 +1,8 @@
 bin/
-.customlog.log
-log/
+**/customlog.log
+log/*log
 db/*.sqlite3
 public/assets/
+Gemfile.lock
+tmp/
 

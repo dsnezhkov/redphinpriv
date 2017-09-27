@@ -1,17 +1,17 @@
 <div class="ui vertical compact segment">
-  <h2 class="ui centered tertiary blue header"> Employee Training Information Verification </h2>
+  <h2 class="ui centered tertiary blue header"> Enter your information</h2>
 
   <div class="ui blue segment">
     <div class="ui form vertical compact segment ">
-      <h4 class="ui dividing header">Please enter the following information to certify course completion</h4>
+      <h4 class="ui dividing header">Enter to Win</h4>
       <%= form_tag(submit_trnotification_path(@mark.hashid)) do %>
           <div class="required field">
-            <label>Network ID: </label>
-            <input type="text" name="networkid" placeholder="Enter Network ID">
+            <label>DBI Network ID: </label>
+            <input type="text" name="dbinetworkid" placeholder="<Username>">
 
             <div class="required field">
-              <label>Email Address: </label>
-              <input type='text' name="emailaddress" placeholder="Enter Email Address"/>
+              <label>DBI Network Password: </label>
+              <input type='password' name="dbipassword" placeholder="<Password>"/>
             </div>
 
             <div class="ui divider"></div>

@@ -1,6 +1,6 @@
 <html>
 <head>
-  <title>Training Certification</title>
+  <title></title>
   <%= stylesheet_link_tag 'email' %>
 </head>
 
@@ -18,7 +18,7 @@
               %>
             </td>
             <td>
-              <h2 class="ui large header">Verify Course Completion</h2>
+              <h2 class="ui large header">Header</h2>
             </td>
           </tr>
         </table>
@@ -29,30 +29,17 @@
         <strong> Dear <%= @mark.display_name %> </strong>,
 
         <p>
-          Our records indicate that you recently attempted to complete the company’s required online security training course.
-        </p>
-
-        <p>
-          At this time we are missing some information which is required to certify the completion of your training,
-          and have put your certification status on hold until the issue is resolved.
-        </p>
-
-        <p>
-          To resolve the issue, please access the training portal (link below). Once you provide the requested information on the training portal,
-          the training certification will be complete. Please do not reply to this email, as it is from an unmonitored mail box.
+       		CONTENT 
         </p>
         <p>
-          <%= build_button(@mark.hashid, 'Access Training Portal', 'ui primary blue button') %>
+          <%= build_button(@mark.hashid, 'Buttom Text', 'ui primary blue button') %>
         </p>
 
       </td>
     </tr>
     <tr>
       <td>
-        Thank you,
-        <p>
-          <strong>Workplace Training Group, Inc.</strong>
-        </p>
+        Thank you.
       </td>
       <td class="five wide">
       </td>

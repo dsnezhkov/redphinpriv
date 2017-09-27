@@ -1,4 +1,4 @@
-class RealtimeNotificationJob < ActiveJob::Base
+class RealtimeNotificationJob < ApplicationJob
   queue_as :default
 
   def perform(mark_id)

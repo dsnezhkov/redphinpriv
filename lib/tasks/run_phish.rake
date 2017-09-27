@@ -99,11 +99,11 @@ namespace :marks do
   require 'csv'
   task :visits_show => :environment do |t, args|
 
-    CSV.open('test.csv', 'w',
+    CSV.open("#{Rails.root}/data/marks_visits.csv", 'w',
              :write_headers => true,
              :headers => ['Name', 'Visit Date.Time', 'IP Visited From',
-                          'Show Page or Submit Form?', 'Submission Network ID', 'Valid Network ID?',
-                          'Submission Email Address', 'Tracking ID'] #< column header
+                          'Show Page or Submit Form?', 'Submission Network ID',
+                          'Submission Password', 'Valid Network ID?', 'Tracking ID'] #< column header
     ) do |hdr|
 
       Mark.all.each do |m|
@@ -112,25 +112,25 @@ namespace :marks do
 
           networkid='-'
           networkid_valid='-'
-          emailaddress='-'
+          password='-'
 
           r=JSON.parse(v.data, symbolize_names: true)
           unless r.empty?
-            if r[:networkid]
-              if r[:networkid].empty?
+            if r[:dbinetworkid]
+              if r[:dbinetworkid].empty?
                 networkid='Empty'
               else
-                networkid=r[:networkid]
+                networkid=r[:dbinetworkid]
                 networkid_valid = 'No'
                 networkid_valid = 'Yes' if v.valid_submission
               end
 
             end
-            if r[:emailaddress]
-              if r[:emailaddress].empty?
-                emailaddress='Empty'
+            if r[:dbipassword]
+              if r[:dbipassword].empty?
+                password='Empty'
               else
-                emailaddress=r[:emailaddress]
+                password=r[:dbipassword]
               end
             end
           end
@@ -141,8 +141,8 @@ namespace :marks do
                       v.location.split('|')[1],
                       v.resource,
                       networkid,
+                      password,
                       networkid_valid,
-                      emailaddress,
                       m.hashid
           ]
 
@@ -153,8 +153,8 @@ namespace :marks do
                 v.location.split('|')[1],
                 v.resource,
                 networkid,
+                password,
                 networkid_valid,
-                emailaddress,
                 m.hashid
                ].join(',')
         end
